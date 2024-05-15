@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,12 +11,12 @@ public class Application {
 
     public static void main(String[] args) {
         
-        List<Album> albums = List.of(SampleData.aLoveSupreme, SampleData.sampleShortAlbum, SampleData.manyTrackAlbum);
+        List<Album> albums = Arrays.asList(SampleData.aLoveSupreme, SampleData.sampleShortAlbum,SampleData.manyTrackAlbum);
 
         Application test = new Application();
 
         Set<String> longTracks = test.findLongTracks(albums);
-        Set<String> longTracksStream = test.findLongTracksRef(albums);
+        Set<String> longTracksRef = test.findLongTracksRef(albums);
 
         System.out.println("List of long tracks (Original method): ");
         for (String trackName : longTracks) {
@@ -23,7 +24,7 @@ public class Application {
         }
 
         System.out.println("List of long tracks (Refacted method): ");
-        for (String trackName : longTracksStream) {
+        for (String trackName : longTracksRef) {
             System.out.println(" - " + trackName);
         }
     }
